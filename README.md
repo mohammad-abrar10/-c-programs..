@@ -15,4 +15,8 @@ learned pointer variable can store the address of a pointer variable and that pr
 
 ------------------------------------------------------------------------------------
 
+added program:-the program of arrays using poniter to take input from user and display the value and address of every array element
+
+------------------------------------------------------------------------------------
+
 
