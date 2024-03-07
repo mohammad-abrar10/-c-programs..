@@ -11,4 +11,8 @@ learning pointer addresses in first.c file
 
 ------------------------------------------------------------------------------------
 
+learned pointer variable can store the address of a pointer variable and that practie is in the file First.c
+
+------------------------------------------------------------------------------------
+
 
