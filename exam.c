@@ -176,19 +176,37 @@
 //         printf("element not found");
 //     }
 // }
+// #include <stdio.h>
+// int main(){
+//     int a=0,b=1,c=2,sum;
+//     printf("fibonacci series \n:");
+//     while(c<10){
+
+//         sum=a+b;
+//         printf("%d",sum);
+//         a=b;
+//         b=sum;
+//         c++;
+
+//     }
+
+// }
+
 #include <stdio.h>
-int main(){
-    int a=0,b=1,c=2,sum;
-    printf("fibonacci series \n:");
-    while(c<10){
+int main(int argc, char const *argv[])
+{
+    // int a=45;
+    // int *ptr=&a;
+    // printf("%p\n",&a);
+    // printf("%p \n ",&*ptr);
+    // printf("%p \n ",ptr);
+    // printf("%p \n ",*&*ptr);
+    // return 0;
 
-        sum=a+b;
-        printf("%d",sum);
-        a=b;
-        b=sum;
-        c++;
-
-    }
-    
-
+    int arr[]={1,7,3,4,5};
+    printf("value of arr[%d]=%d \n",0,arr[0]);
+    printf("value of arr[%d]=%d \n",1,arr[1]);
+    printf("value of arr[%d]=%d \n",0,*arr);
+    printf("value of arr[%d]=%d \n",1,*(arr+1));
+    printf("%d \n",*arr+1); //it adds the first element with 1 bt not give the value of 2 element 
 }
