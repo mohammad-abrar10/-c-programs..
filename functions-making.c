@@ -55,6 +55,9 @@ int main(int argc, char const *argv[])
   if(ch ==1){
     goto  START;
   }
+  else{
+    system("exit");
+  }
 
 
   return 0;
@@ -91,14 +94,19 @@ int main(int argc, char const *argv[])
   // searching of element in an array 
 
  void searchOf(int arr[]){
-  int element;
+  int element,flag=0;
    printf("enter the element which you are looking for ");
    scanf("%d",&element);
    for(i=0;i<limit;i++){
     if(element==arr[i]){
-      printf("element %d found at index %d \n ",arr[i] ,i);
-      break;
+      flag=1;
     }
+   }
+   if(flag==1){
+    printf("%d found at index %d \n",element,i);
+   }
+   else{
+    printf("element not found");
    }
  }
 
