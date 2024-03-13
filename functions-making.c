@@ -63,7 +63,9 @@ int main(int argc, char const *argv[])
     printf("invalid choice,try again \n");
     break;
   }
-// -------------------------choosing option from user----------------------------- 
+
+  // --------------------choosing options from user input --------------------------
+
   printf("enter 1 to continue :    \n");
   scanf("%d",&ch);
 
@@ -78,7 +80,7 @@ int main(int argc, char const *argv[])
   return 0;
 }
 
-// -------------------------all the functions starts from here----------------------------- 
+// -------------------------all the functions starts from here-----------------------------
 
   // insertion function
 
