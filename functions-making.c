@@ -132,23 +132,24 @@ int main(int argc, char const *argv[])
 void insertionAtIndex(int arr[]){
    printf("enter the position where you want to insert");
    scanf("%d",&position);
-   printf("enter the element which you want to insert ");
-   scanf("%d",&element);
 
-   if(position>0 || position>=limit){
-     printf("invalid choice");
+   if(position>0 && position<=limit){
+     printf("enter the element which you want to insert ");
+     scanf("%d",&element);
+
+    for (i=limit;i>=position;i--){
+      arr[i]=arr[i-1];
+    }
+    arr[position]=element;
+    limit++;
+    printf("resulted array : \n");
+    for(i=0;i<limit;i++)
+    {
+     printf("\n enter the arr[%d]  : %d \n",i,arr[i]);
+    }
    }
-
-   for (i=limit;i>=position;i--){
-    arr[i]=arr[i-1];
-   }
-   arr[position]=element;
-   limit++;
-
-   printf("resulted array : \n");
-   for(i=0;i<limit;i++){
-    printf("\n enter the arr[%d]  : %d \n",i,arr[i]);
-
+   else{
+     printf("invalid choice \n");
    }
 }
 
@@ -156,23 +157,22 @@ void insertionAtIndex(int arr[]){
 // deletion  at specific index
 
 void deletionAtIndex(int arr[]){
-   printf("enter the position where you want to delete the element  : ");
+   printf("enter the position where you want to delete");
    scanf("%d",&position);
 
-   if(position>0 || position>=limit){
-     printf("invalid choice");
+   if(position>0 && position<limit){
+    for (i=position;i<limit-1;i++){
+      arr[i]=arr[i+1];
+    }
+    limit--;
+    printf("resulted array : \n");
+    for(i=0;i<limit;i++)
+    {
+     printf("\n enter the arr[%d]  : %d \n",i,arr[i]);
+    }
    }
-
-   for (i=limit;i>=position;i--){
-    arr[i]=arr[i-1];
-   }
-
-   limit--;
-
-   printf("resulted array : \n");
-   for(i=0;i<limit;i++){
-    printf("\n enter the arr[%d]  : %d \n",i,arr[i]);
-
+   else{
+     printf("invalid choice \n");
    }
 
 }
