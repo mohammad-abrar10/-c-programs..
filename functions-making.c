@@ -2,13 +2,17 @@
 #define MAX 100
 #include <stdlib.h>
 
-// prototypes 
+// prototypes
 void insertOp(int arr[]);
 void displayOp(int arr[]);
 void sumOp(int arr[]);
 void searchOf(int arr[]);
+void insertionAtIndex(int arr[]);
+void deletionAtIndex(int arr[]);
 
-int limit,i;
+
+
+int limit,i,element,position;
 int main(int argc, char const *argv[])
 {
   int arr[MAX];
@@ -20,8 +24,9 @@ int main(int argc, char const *argv[])
  system("clear");
 
 
+// --------------------using switching case here --------------------------
 
-  printf("press 1 for insertion  \n   press 2 for displaying  \n   press 3 for addition    \n   press 4 for searching  \n:  ");
+  printf("press 1 for insertion  \n   press 2 for displaying  \n   press 3 for addition    \n   press 4 for searching  \n:   press 5 for insertion at specific index  :  \n  press 6 for deletion at specific index");
   scanf("%d",&ch);
   switch(ch){
     case 1 :
@@ -44,6 +49,16 @@ int main(int argc, char const *argv[])
     searchOf(arr);
     break;
 
+    case 5:
+    printf("*********** insertion at specific index *************\n");
+    insertionAtIndex(arr);
+    break;
+
+    case 6:
+    printf("*********** deletion  at specific index *************\n");
+    deletionAtIndex(arr);
+    break;
+
     default:
     printf("invalid choice,try again \n");
     break;
@@ -62,6 +77,8 @@ int main(int argc, char const *argv[])
 
   return 0;
 }
+
+// -------------------------all the functions starts from here----------------------------- 
 
   // insertion function
 
@@ -94,7 +111,7 @@ int main(int argc, char const *argv[])
   // searching of element in an array 
 
  void searchOf(int arr[]){
-  int element,flag=0;
+  int flag=0;
    printf("enter the element which you are looking for ");
    scanf("%d",&element);
    for(i=0;i<limit;i++){
@@ -109,6 +126,56 @@ int main(int argc, char const *argv[])
     printf("element not found");
    }
  }
+
+//  insertion at specific index 
+
+void insertionAtIndex(int arr[]){
+   printf("enter the position where you want to insert");
+   scanf("%d",&position);
+   printf("enter the element which you want to insert ");
+   scanf("%d",&element);
+
+   if(position>0 || position>=limit){
+     printf("invalid choice");
+   }
+
+   for (i=limit;i>=position;i--){
+    arr[i]=arr[i-1];
+   }
+   arr[position]=element;
+   limit++;
+
+   printf("resulted array : \n");
+   for(i=0;i<limit;i++){
+    printf("\n enter the arr[%d]  : %d \n",i,arr[i]);
+
+   }
+}
+
+
+// deletion  at specific index
+
+void deletionAtIndex(int arr[]){
+   printf("enter the position where you want to delete the element  : ");
+   scanf("%d",&position);
+
+   if(position>0 || position>=limit){
+     printf("invalid choice");
+   }
+
+   for (i=limit;i>=position;i--){
+    arr[i]=arr[i-1];
+   }
+
+   limit--;
+
+   printf("resulted array : \n");
+   for(i=0;i<limit;i++){
+    printf("\n enter the arr[%d]  : %d \n",i,arr[i]);
+
+   }
+
+}
 
 
 
