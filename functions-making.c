@@ -63,7 +63,7 @@ int main(int argc, char const *argv[])
     printf("invalid choice,try again \n");
     break;
   }
-
+// -------------------------choosing option from user----------------------------- 
   printf("enter 1 to continue :    \n");
   scanf("%d",&ch);
 
