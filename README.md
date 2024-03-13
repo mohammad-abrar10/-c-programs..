@@ -24,4 +24,8 @@ added the program of call by reference using pointers in C and printing the addr
 
 ------------------------------------------------------------------------------------
 
+programs named functions making where i added and practiced making functions and used switch method which tells a user which function you want to operate.from now i updated inserting array,displaying array,addtion function,insertion and deletion an element at a  specific index function and used prototype in it ..
+
+------------------------------------------------------------------------------------
+
 
