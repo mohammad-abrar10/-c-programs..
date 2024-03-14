@@ -209,6 +209,8 @@ void largestElement(int arr[]){
   printf("largest element at index arr[%d] = %d \n",i,large);
 }
 
+// finding smallest number in an array 
+
 void smallestElement(int arr[]){
   int small=10000;
   for (i=0;i<limit;i++){
