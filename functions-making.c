@@ -9,10 +9,12 @@ void sumOp(int arr[]);
 void searchOf(int arr[]);
 void insertionAtIndex(int arr[]);
 void deletionAtIndex(int arr[]);
+void largestElement(int arr[]);
+void smallestElement(int arr[]);
 
 
-
-int limit,i,element,position;
+// ---------------global variables---------------------- 
+int limit,i,element,position,flag=0;
 int main(int argc, char const *argv[])
 {
   int arr[MAX];
@@ -20,13 +22,19 @@ int main(int argc, char const *argv[])
   printf("enter the size of an array ");
   scanf("%d",&limit);
 
+
+// used for clearing previous screen
  START:
  system("clear");
 
+printf("\n ******************************************************************* \n");
+printf("\n *******************       MENU     ******************************** \n");
+printf("\n *******************************************************************\n");
+
+
+  printf("\n press 1 for insertion \npress 2 for displaying\npress 3 for addition\npress 4 for searching\npress 5 for insertion at specific index\npress 6 for deletion at specific index\npress 7 for finding largest number in an array\npress 8 for finding smallest number in an array\n");
 
 // --------------------using switching case here --------------------------
-
-  printf("press 1 for insertion  \n   press 2 for displaying  \n   press 3 for addition    \n   press 4 for searching  \n:   press 5 for insertion at specific index  :  \n  press 6 for deletion at specific index");
   scanf("%d",&ch);
   switch(ch){
     case 1 :
@@ -59,6 +67,17 @@ int main(int argc, char const *argv[])
     deletionAtIndex(arr);
     break;
 
+    case 7:
+    printf("*********** finding largest number in an array  *************\n");
+    largestElement(arr);
+
+    break;
+
+    case 8:
+    printf("*********** finding smallest  number in an array  *************\n");
+    smallestElement(arr);
+    break;
+
     default:
     printf("invalid choice,try again \n");
     break;
@@ -73,6 +92,7 @@ int main(int argc, char const *argv[])
     goto  START;
   }
   else{
+    // exits the program
     system("exit");
   }
 
@@ -92,7 +112,7 @@ int main(int argc, char const *argv[])
     }
   }
 
-  // displaying an array 
+  // displaying an array
   void displayOp(int arr[]){
     for(i=0;i<limit;i++){
       printf("\n enter the arr[%d]  : %d \n",i,arr[i]);
@@ -100,7 +120,7 @@ int main(int argc, char const *argv[])
     }
   }
 
-  // addition of an array 
+  // addition of an array
 
   void sumOp(int arr[]){
     int sum=0;
@@ -110,10 +130,9 @@ int main(int argc, char const *argv[])
     printf("sum of array elements = %d \n",sum);
   }
 
-  // searching of element in an array 
+  // searching of element in an array
 
  void searchOf(int arr[]){
-  int flag=0;
    printf("enter the element which you are looking for ");
    scanf("%d",&element);
    for(i=0;i<limit;i++){
@@ -129,7 +148,7 @@ int main(int argc, char const *argv[])
    }
  }
 
-//  insertion at specific index 
+//  insertion at specific index
 
 void insertionAtIndex(int arr[]){
    printf("enter the position where you want to insert");
@@ -178,6 +197,29 @@ void deletionAtIndex(int arr[]){
    }
 
 }
+
+// finding largest number in an array 
+void largestElement(int arr[]){
+  int large=-99;
+  for (i=0;i<limit;i++){
+    if(arr[i]>large){
+      large=arr[i];
+    }
+  }
+  printf("largest element at index arr[%d] = %d \n",i,large);
+}
+
+void smallestElement(int arr[]){
+  int small=10000;
+  for (i=0;i<limit;i++){
+    if(arr[i]<small){
+      small=arr[i];
+    }
+  }
+  printf("smallest element at index arr[%d] = %d \n",i,small);
+}
+
+
 
 
 
