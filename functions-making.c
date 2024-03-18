@@ -6,15 +6,15 @@
 void insertOp(int arr[]);
 void displayOp(int arr[]);
 void sumOp(int arr[]);
-void searchOf(int arr[]);
+void linearsearch(int arr[]);
 void insertionAtIndex(int arr[]);
 void deletionAtIndex(int arr[]);
 void largestElement(int arr[]);
 void smallestElement(int arr[]);
-
+void factorail(int element);
 
 // ---------------global variables---------------------- 
-int limit,i,element,position,flag=0;
+int limit,i,element,position,flag=0,loc;
 int main(int argc, char const *argv[])
 {
   int arr[MAX];
@@ -32,7 +32,7 @@ printf("\n *******************       MENU     ******************************** \
 printf("\n *******************************************************************\n");
 
 
-  printf("\n press 1 for insertion \npress 2 for displaying\npress 3 for addition\npress 4 for searching\npress 5 for insertion at specific index\npress 6 for deletion at specific index\npress 7 for finding largest number in an array\npress 8 for finding smallest number in an array\n");
+  printf("\n press 1 for insertion \npress 2 for displaying\npress 3 for addition\npress 4 for searching\npress 5 for insertion at specific index\npress 6 for deletion at specific index\npress 7 for finding largest number in an array\npress 8 for finding smallest number in an array\npress 9 for finding factorial of a number ");
 
 // --------------------using switching case here --------------------------
   scanf("%d",&ch);
@@ -54,7 +54,7 @@ printf("\n *******************************************************************\n
 
     case 4:
     printf("*********** searching element in an array *************\n");
-    searchOf(arr);
+    linearsearch(arr);
     break;
 
     case 5:
@@ -76,6 +76,11 @@ printf("\n *******************************************************************\n
     case 8:
     printf("*********** finding smallest  number in an array  *************\n");
     smallestElement(arr);
+    break;
+
+    case 9:
+    printf("*********** finding factorial of a number   *************\n");
+    factorail(element);
     break;
 
     default:
@@ -132,16 +137,19 @@ printf("\n *******************************************************************\n
 
   // searching of element in an array
 
- void searchOf(int arr[]){
+ void linearsearch(int arr[]){
+  displayOp(arr);
    printf("enter the element which you are looking for ");
    scanf("%d",&element);
    for(i=0;i<limit;i++){
     if(element==arr[i]){
       flag=1;
+      loc=i;
+      break;
     }
    }
    if(flag==1){
-    printf("%d found at index %d \n",element,i);
+    printf("%d found at index arr[%d] \n",element,loc);
    }
    else{
     printf("element not found");
@@ -198,27 +206,50 @@ void deletionAtIndex(int arr[]){
 
 }
 
-// finding largest number in an array 
+// finding largest number in an array
 void largestElement(int arr[]){
-  int large=-99;
-  for (i=0;i<limit;i++){
-    if(arr[i]>large){
-      large=arr[i];
+   displayOp(arr);
+   int big=arr[0];
+   for(i=1;i<limit;i++){
+    if(big<arr[i]){
+      big=arr[i];
+      loc=i;
     }
-  }
-  printf("largest element at index arr[%d] = %d \n",i,large);
+   }
+    printf("\nlargest number in an array is %d found at index arr[%d] \n",big,loc);
 }
 
-// finding smallest number in an array 
+// finding smallest number in an array
 
 void smallestElement(int arr[]){
-  int small=10000;
-  for (i=0;i<limit;i++){
-    if(arr[i]<small){
+  displayOp(arr);
+   int small=arr[0];
+   for(i=1;i<limit;i++){
+    if(small>arr[i]){
       small=arr[i];
+      loc=i;
     }
+   }
+    printf("\nsmallest number in an array is %d found at index arr[%d] \n",small,loc);
+}
+
+// finding factorail of a number 
+void factorail(int element){
+  int fact=1;
+  printf("enter a number to find its factorail");
+  scanf("%d",&element);
+
+  if(element <0){
+    printf("factorail of negative integers doesnt exist");
   }
-  printf("smallest element at index arr[%d] = %d \n",i,small);
+  else{
+    for(i=1;i<=element;i++){
+      fact*=i;
+
+    }
+    printf("factoral of %d  : %d",element,fact);
+  }
+
 }
 
 

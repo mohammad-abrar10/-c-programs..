@@ -192,9 +192,9 @@
 
 // }
 
-#include <stdio.h>
-int main(int argc, char const *argv[])
-{
+// #include <stdio.h>
+// int main(int argc, char const *argv[])
+// {
     // int a=45;
     // int *ptr=&a;
     // printf("%p\n",&a);
@@ -203,10 +203,33 @@ int main(int argc, char const *argv[])
     // printf("%p \n ",*&*ptr);
     // return 0;
 
-    int arr[]={1,7,3,4,5};
-    printf("value of arr[%d]=%d \n",0,arr[0]);
-    printf("value of arr[%d]=%d \n",1,arr[1]);
-    printf("value of arr[%d]=%d \n",0,*arr);
-    printf("value of arr[%d]=%d \n",1,*(arr+1));
-    printf("%d \n",*arr+1); //it adds the first element with 1 bt not give the value of 2 element 
+//     int arr[]={1,7,3,4,5};
+//     printf("value of arr[%d]=%d \n",0,arr[0]);
+//     printf("value of arr[%d]=%d \n",1,arr[1]);
+//     printf("value of arr[%d]=%d \n",0,*arr);
+//     printf("value of arr[%d]=%d \n",1,*(arr+1));
+//     printf("%d \n",*arr+1); //it adds the first element with 1 bt not give the value of 2 element 
+// }
+
+
+#include <stdio.h>
+int main(int argc, char const *argv[])
+{
+    int n,i,fact=1;
+    printf("enter a number ");
+    scanf("%d",&n);
+    if(n==0&&n<0){
+        printf("factorial for 0 and negative integers does'nt exist \n");
+    }
+    else{
+        printf("the factorial of %d  :    ",n);
+        for(i=1;i<=n;i++){
+            fact*=i;
+        }
+        printf("%d \n",fact);
+    }
+
+
+    return 0;
 }
+
