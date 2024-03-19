@@ -12,9 +12,10 @@ void deletionAtIndex(int arr[]);
 void largestElement(int arr[]);
 void smallestElement(int arr[]);
 void factorail(int element);
+void fibonacciSeries(int terms);
 
 // ---------------global variables---------------------- 
-int limit,i,element,position,flag=0,loc;
+int limit,i,element,position,flag=0,loc,terms;
 int main(int argc, char const *argv[])
 {
   int arr[MAX];
@@ -32,7 +33,7 @@ printf("\n *******************       MENU     ******************************** \
 printf("\n *******************************************************************\n");
 
 
-  printf("\n press 1 for insertion \npress 2 for displaying\npress 3 for addition\npress 4 for searching\npress 5 for insertion at specific index\npress 6 for deletion at specific index\npress 7 for finding largest number in an array\npress 8 for finding smallest number in an array\npress 9 for finding factorial of a number ");
+  printf("\n press 1 for insertion \npress 2 for displaying\npress 3 for addition\npress 4 for searching\npress 5 for insertion at specific index\npress 6 for deletion at specific index\npress 7 for finding largest number in an array\npress 8 for finding smallest number in an array\npress 9 for finding factorial of a number\npress 10 for fibonacci series");
 
 // --------------------using switching case here --------------------------
   scanf("%d",&ch);
@@ -81,6 +82,11 @@ printf("\n *******************************************************************\n
     case 9:
     printf("*********** finding factorial of a number   *************\n");
     factorail(element);
+    break;
+
+    case 10:
+    printf("*********** fibonacci series   *************\n");
+    fibonacciSeries(terms);
     break;
 
     default:
@@ -250,6 +256,22 @@ void factorail(int element){
     printf("factoral of %d  : %d",element,fact);
   }
 
+}
+
+// generating fibonacci series of an element
+void fibonacciSeries(int num){
+  int sum;
+  int a=0,b=1;
+  printf("enter the number of terms");
+  scanf("%d",&num);
+
+  for(i=0;i<num;i++){
+    printf("%d \t ",a);
+    sum=a+b;
+    a=b;
+    b=sum;
+  }
+  printf("\n");
 }
 
 

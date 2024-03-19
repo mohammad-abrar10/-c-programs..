@@ -211,25 +211,62 @@
 //     printf("%d \n",*arr+1); //it adds the first element with 1 bt not give the value of 2 element 
 // }
 
+//  factorail of a number 
+// #include <stdio.h>
+// int main(int argc, char const *argv[])
+// {
+//     int n,i,fact=1;
+//     printf("enter a number ");
+//     scanf("%d",&n);
+//     if(n==0&&n<0){
+//         printf("factorial for 0 and negative integers does'nt exist \n");
+//     }
+//     else{
+//         printf("the factorial of %d  :    ",n);
+//         for(i=1;i<=n;i++){
+//             fact*=i;
+//         }
+//         printf("%d \n",fact);
+//     }
 
+
+//     return 0;
+// }
+
+// fibonacci series 
 #include <stdio.h>
 int main(int argc, char const *argv[])
 {
-    int n,i,fact=1;
-    printf("enter a number ");
-    scanf("%d",&n);
-    if(n==0&&n<0){
-        printf("factorial for 0 and negative integers does'nt exist \n");
-    }
-    else{
-        printf("the factorial of %d  :    ",n);
-        for(i=1;i<=n;i++){
-            fact*=i;
-        }
-        printf("%d \n",fact);
-    }
+   int firstTerm=0;
+   int secoudTerm=1;
+   int terms;
+   printf("enter the number of terms");
+   scanf("%d",&terms);
+//  using do while loop
 
+// printf("using do while loop to print the fibonacci series of n number of terms \n");
+// int i=0;
+//   do{
+//     printf("%d \t",firstTerm);
+//     // printf("%d",secoudTerm);
+//     int sum=firstTerm+secoudTerm;
+//     firstTerm=secoudTerm;
+//     secoudTerm=sum;
+//     i++;
+//   }while(i<terms);
 
-    return 0;
+//   using for loop
+printf("using for loop to print the fibonacci series of n number of terms \n");
+
+for (int i=0;i<terms;i++){
+    printf("%d \t",firstTerm);
+    int sum=firstTerm+secoudTerm;
+    firstTerm=secoudTerm;
+    secoudTerm=sum;
+
 }
+
+}
+
+
 
