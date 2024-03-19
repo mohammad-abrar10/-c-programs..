@@ -33,7 +33,7 @@ printf("\n *******************       MENU     ******************************** \
 printf("\n *******************************************************************\n");
 
 
-  printf("\n press 1 for insertion \npress 2 for displaying\npress 3 for addition\npress 4 for searching\npress 5 for insertion at specific index\npress 6 for deletion at specific index\npress 7 for finding largest number in an array\npress 8 for finding smallest number in an array\npress 9 for finding factorial of a number\npress 10 for fibonacci series");
+  printf("\npress 1 for insertion \npress 2 for displaying\npress 3 for addition\npress 4 for searching\npress 5 for insertion at specific index\npress 6 for deletion at specific index\npress 7 for finding largest number in an array\npress 8 for finding smallest number in an array\npress 9 for finding factorial of a number\npress 10 for fibonacci series");
 
 // --------------------using switching case here --------------------------
   scanf("%d",&ch);
