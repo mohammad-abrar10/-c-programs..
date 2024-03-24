@@ -234,14 +234,14 @@
 // }
 
 // fibonacci series 
-#include <stdio.h>
-int main(int argc, char const *argv[])
-{
-   int firstTerm=0;
-   int secoudTerm=1;
-   int terms;
-   printf("enter the number of terms");
-   scanf("%d",&terms);
+// #include <stdio.h>
+// int main(int argc, char const *argv[])
+// {
+//    int firstTerm=0;
+//    int secoudTerm=1;
+//    int terms;
+//    printf("enter the number of terms");
+//    scanf("%d",&terms);
 //  using do while loop
 
 // printf("using do while loop to print the fibonacci series of n number of terms \n");
@@ -256,17 +256,52 @@ int main(int argc, char const *argv[])
 //   }while(i<terms);
 
 //   using for loop
-printf("using for loop to print the fibonacci series of n number of terms \n");
+// printf("using for loop to print the fibonacci series of n number of terms \n");
 
-for (int i=0;i<terms;i++){
-    printf("%d \t",firstTerm);
-    int sum=firstTerm+secoudTerm;
-    firstTerm=secoudTerm;
-    secoudTerm=sum;
+// for (int i=0;i<terms;i++){
+//     printf("%d \t",firstTerm);
+//     int sum=firstTerm+secoudTerm;
+//     firstTerm=secoudTerm;
+//     secoudTerm=sum;
 
+
+
+
+// }
+
+#include <stdio.h>
+int main(int argc, char const *argv[])
+{
+    int loc;
+    int flag=0;
+    int arr[5];
+    for(int i=0;i<5;i++){
+        printf("enter array elements \n");
+        scanf("%d",&arr[i]);
+
+    }
+
+    int key;
+
+    printf("enter the key element ");
+    scanf("%d",&key);
+
+    for(int i=0;i<5;i++){
+        if (arr[i]==key){
+            flag =1;
+            loc=i;
+            break;
+        }
+    }
+    if(flag==1){
+        printf("%d found at %d",key,loc);
+    }
+    else{
+        printf("element not found ");
+    }
+    return 0;
 }
 
-}
 
 
 
