@@ -13,6 +13,7 @@ void largestElement(int arr[]);
 void smallestElement(int arr[]);
 void binarySearch(int arr[], int limit);
 void bubbleSort(int arr[]);
+void selectionSort(int arr[]);
 
 // global variables
 int limit,i,element,position,flag=0,loc;
@@ -30,7 +31,7 @@ int main(int argc, char const *argv[]) {
     printf("\n ******************************************************************* \n");
     printf("\n *******************       MENU     ******************************** \n");
     printf("\n *******************************************************************\n");
-    printf("\npress 1 for insertion \npress 2 for displaying\npress 3 for searching\npress 4 for insertion at specific index\npress 5 for deletion at specific index\npress 6 for finding largest number in an array\npress 7 for finding smallest number in an array\npress 8 for binary search\npress 9 for bubble sorting an array\npress 10 to exit\n");
+    printf("\npress 1 for insertion \npress 2 for displaying\npress 3 for searching\npress 4 for insertion at specific index\npress 5 for deletion at specific index\npress 6 for finding largest number in an array\npress 7 for finding smallest number in an array\npress 8 for binary search\npress 9 for bubble sorting an array\npress 10 for selection sorting an array\npress 11 to exit\n");
 
     scanf("%d", &ch);
     switch(ch) {
@@ -71,6 +72,10 @@ int main(int argc, char const *argv[]) {
             bubbleSort(arr);
             break;
         case 10:
+            printf("*********** selection sorting of array *************\n");
+            selectionSort(arr);
+            break;
+        case 11:
             exit(0); // Exit the program
             break;
         default:
@@ -220,6 +225,37 @@ void bubbleSort(int ar[]) {
   }
   printf("\nSorted Array: ");
   displayOp(ar);
+}
+
+
+// Selecion sorting
+
+
+void selectionSort(int arr[])
+{
+   int  j,temp , midIndex;
+
+   for(i=0 ; i<limit-1 ; i++)
+   {
+      midIndex = i ;
+
+      for(j=i+1 ; j<limit ; j++)
+      {
+         if(arr[j]<arr[midIndex])
+         {
+            midIndex = j ;
+         }
+      }
+
+   if(midIndex != 1)
+    {
+      temp = arr[i];
+      arr[i] = arr[midIndex];
+      arr[midIndex]=temp;
+    }
+   }
+  displayOp(arr);
+
 }
 
 
