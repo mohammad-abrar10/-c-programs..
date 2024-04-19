@@ -217,20 +217,92 @@
 
     
    
-#include <stdio.h>
-int main()
-{
-    int arr[5],i,big=0;
-    printf("enter elements of n array");
-    for (i=0;i<5;i++)
-    scanf("%d",&arr[i]);
-     i=0;
-    while(i<5){
-        if(arr[i]>big){
-        big=arr[i];
-        }
-    }
-    printf("%d",big);
+// #include <stdio.h>
+// int main()
+// {
+//     int arr[5],i,big=0;
+//     printf("enter elements of n array");
+//     for (i=0;i<5;i++)
+//     scanf("%d",&arr[i]);
+//      i=0;
+//     while(i<5){
+//         if(arr[i]>big){
+//         big=arr[i];
+//         }
+//     }
+//     printf("%d",big);
 
+// }
+
+// practice for merge sort array
+
+#include <stdio.h>
+void merge(int arr[],int first,int mid,int last);
+void mergeSort(int arr[],int first,int last){
+    if (first<last){
+        int mid =(first+last)/2;
+        mergeSort(arr,first,mid);
+        mergeSort(arr,mid+1,last);
+        merge(arr,first,mid,last);
+    }
+}
+
+void merge(int arr[],int first,int mid,int last){
+
+    int i,j,k;
+    int size1=mid-first+1;
+    int size2=last-mid;
+
+    int leftArray[size1],rightArray[size2];
+
+    for(i=0;i<size1;i++){
+        leftArray[i]=arr[first+i];
+
+    }
+    for(j=0;j<size2;j++){
+        rightArray[j]=arr[mid+1+j];
+
+    }
+
+    i=0;
+    j=0;
+    k=first; //initializing first element of merged array
+
+    while (i<size1 && j<size2){
+        if(leftArray[i]<=rightArray[j]){
+            arr[k]=leftArray[i];
+            i++;
+        }
+        else{
+           arr[k]=rightArray[j];
+            j++ ;
+        }
+        k++;
+    }
+    while(i<size1){
+        arr[k]=leftArray[i];
+        i++;
+        k++;
+    }
+    while(j<size2){
+        arr[k]=rightArray[j];
+        j++;
+        k++;
+    }
+}
+
+int main(){
+    int arr[]={21,66,23,90,32,789,21,56,89,32,76,43,56,21};
+    int size=sizeof(arr)/sizeof(arr[0]);
+
+    printf("\n before sort \n");
+    for(int i=0;i<size;i++){
+        printf(" \n %d \n",arr[i]);
+    }
+    mergeSort(arr,0,size-1);
+    printf("\n after sort \n");
+    for(int i=0;i<size;i++){
+        printf(" \n %d \n",arr[i]);
+    }
 }
 
