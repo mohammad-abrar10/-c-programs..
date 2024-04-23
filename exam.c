@@ -269,37 +269,68 @@
 
 // }
 
+// #include <stdio.h>
+// int main(int argc, char const *argv[])
+// {
+//     int loc;
+//     int flag=0;
+//     int arr[5];
+//     for(int i=0;i<5;i++){
+//         printf("enter array elements \n");
+//         scanf("%d",&arr[i]);
+
+//     }
+
+//     int key;
+
+//     printf("enter the key element ");
+//     scanf("%d",&key);
+
+//     for(int i=0;i<5;i++){
+//         if (arr[i]==key){
+//             flag =1;
+//             loc=i;
+//             break;
+//         }
+//     }
+//     if(flag==1){
+//         printf("%d found at %d",key,loc);
+//     }
+//     else{
+//         printf("element not found ");
+//     }
+//     return 0;
+// }
+
 #include <stdio.h>
-int main(int argc, char const *argv[])
-{
-    int loc;
-    int flag=0;
-    int arr[5];
-    for(int i=0;i<5;i++){
-        printf("enter array elements \n");
-        scanf("%d",&arr[i]);
+void selectionSort(int arr[],int size);
+int main(){
+    int arr[]={23,56,78,12,90,9,7};
+    int size=sizeof(arr)/sizeof(arr[0]);
+    printf("%d",size);
+    selectionSort(arr,size);
 
-    }
+}
+void selectionSort(int arr[],int size){
+    int i,j,key,temp;
+    for(i=0;i<size-1;i++){
+        key=i;
+        for(j=i+1;j<size-1;j++){
+            if(arr[j]>arr[key]){
+                key=j;
+            }
 
-    int key;
+        }
+        if(key!=1){
+            temp=arr[i];
+            arr[i]=arr[key];
+            arr[key]=temp;
 
-    printf("enter the key element ");
-    scanf("%d",&key);
-
-    for(int i=0;i<5;i++){
-        if (arr[i]==key){
-            flag =1;
-            loc=i;
-            break;
         }
     }
-    if(flag==1){
-        printf("%d found at %d",key,loc);
+     for(i = 0; i < size; i++) {
+        printf("\n enter the arr[%d]  : %d \n", i, arr[i]);
     }
-    else{
-        printf("element not found ");
-    }
-    return 0;
 }
 
 
