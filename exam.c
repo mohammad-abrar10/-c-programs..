@@ -303,34 +303,80 @@
 // }
 
 #include <stdio.h>
-void selectionSort(int arr[],int size);
-int main(){
-    int arr[]={23,56,78,12,90,9,7};
-    int size=sizeof(arr)/sizeof(arr[0]);
-    printf("%d",size);
-    selectionSort(arr,size);
+// void selectionSort(int arr[],int size);
+// int main(){
+//     int arr[]={23,56,78,12,90,9,7};
+//     int size=sizeof(arr)/sizeof(arr[0]);
+//     printf("%d",size);
+//     selectionSort(arr,size);
 
-}
-void selectionSort(int arr[],int size){
-    int i,j,key,temp;
-    for(i=0;i<size-1;i++){
-        key=i;
-        for(j=i+1;j<size-1;j++){
-            if(arr[j]>arr[key]){
-                key=j;
-            }
+// }
+// void selectionSort(int arr[],int size){
+//     int i,j,key,temp;
+//     for(i=0;i<size-1;i++){
+//         key=i;
+//         for(j=i+1;j<size-1;j++){
+//             if(arr[j]>arr[key]){
+//                 key=j;
+//             }
 
-        }
-        if(key!=1){
-            temp=arr[i];
-            arr[i]=arr[key];
-            arr[key]=temp;
+//         }
+//         if(key!=1){
+//             temp=arr[i];
+//             arr[i]=arr[key];
+//             arr[key]=temp;
 
-        }
-    }
-     for(i = 0; i < size; i++) {
-        printf("\n enter the arr[%d]  : %d \n", i, arr[i]);
-    }
+//         }
+//     }
+//      for(i = 0; i < size; i++) {
+//         printf("\n enter the arr[%d]  : %d \n", i, arr[i]);
+//     }
+// }
+// #include <stdlib.h>
+// int main() {
+//     int n,arr[n],i;
+//     printf("enter the number of elements in an array ");
+//     scanf("%d",&n);
+//     // int arr[] = {10, 7, 8, 9, 1, 5};
+//     for(int i=0;i<n-1;i++){
+//            arr[i] = rand();
+
+//     }
+//     // quickSort(arr, 0, n - 1);
+//     for (i = 0; i < n; i++) {
+//         printf("%d ", arr[i]);
+//     }
+//     return 0;
+// }
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node
+{
+    int data;
+    struct node * link;
+}sll;
+
+int main(int argc, char const *argv[])
+{
+    sll * head;
+    // struct node *head;
+    sll *secound;
+    sll *third;
+
+    head=(sll *)malloc(sizeof(sll));
+    secound=(sll*)malloc(sizeof(sll));
+    // secound=(struct node *)malloc(sizeof(struct node));
+    third=(sll*)malloc(sizeof(sll));
+
+    head->data=100;
+    head->link=secound;
+    secound->data=100;
+    secound->link=third;
+    third->data=100;
+    third->link=NULL;
+    return 0;
 }
 
 

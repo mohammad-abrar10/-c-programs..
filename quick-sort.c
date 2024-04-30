@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void swap(int* a, int* b) {
     int t = *a;
@@ -31,10 +32,16 @@ void quickSort(int arr[],int first,int last){
 
 
 int main() {
-    int arr[] = {10, 7, 8, 9, 1, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n,arr[n],i;
+    printf("enter the number of elements in an array ");
+    scanf("%d",&n);
+    // int arr[] = {10, 7, 8, 9, 1, 5};
+    for(int i=0;i<n-1;i++){
+           arr[i] = rand();
+
+    }
     quickSort(arr, 0, n - 1);
-    for (int i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
     return 0;
