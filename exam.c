@@ -302,7 +302,7 @@
 //     return 0;
 // }
 
-#include <stdio.h>
+// #include <stdio.h>
 // void selectionSort(int arr[],int size);
 // int main(){
 //     int arr[]={23,56,78,12,90,9,7};
@@ -349,36 +349,74 @@
 //     return 0;
 // }
 
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 
 typedef struct node
 {
-    int data;
-    struct node * link;
-}sll;
+    int data ;
+    struct node *link;
+}SLL;
 
-int main(int argc, char const *argv[])
+SLL *start = NULL;
+
+SLL *getnode()
 {
-    sll * head;
-    // struct node *head;
-    sll *secound;
-    sll *third;
+    SLL *fresh;
+    fresh = (SLL*)malloc(sizeof(SLL));
 
-    head=(sll *)malloc(sizeof(sll));
-    secound=(sll*)malloc(sizeof(sll));
-    // secound=(struct node *)malloc(sizeof(struct node));
-    third=(sll*)malloc(sizeof(sll));
+    if(!fresh)
+    {
+        printf("\n Malloc Failed \n");
+        exit(1);
+    }
 
-    head->data=100;
-    head->link=secound;
-    secound->data=100;
-    secound->link=third;
-    third->data=100;
-    third->link=NULL;
-    return 0;
+    printf("\n Enter data : ");
+    scanf("%d",&fresh->data);
+
+    fresh->link = NULL;
+    return fresh; //returns address of newly created node
 }
 
+void createLinkedList()
+{
+    SLL *ptr;
+    char ch ;
 
+    if(start==NULL)
+    {
+        start = getnode();
+    }
+    else
+    {
+        for(ptr=start ; ptr->link != NULL;ptr=ptr->link);
 
+        ptr-> link = getnode(); //when Null
+    }
 
+    printf("\n Press Y to continue : ");
+    fflush(stdin);
+    scanf("%c",&ch);
+
+    if(ch=='y' || ch=='Y')
+    {
+        createLinkedList();//goes back to function and creates another node
+    }
+}
+
+void printLinkedList()
+{
+    SLL *ptr;
+    // for(ptr=start ; ptr->link != NULL;ptr=ptr->link)
+    for(ptr=start ; ptr != NULL;ptr=ptr->link)
+    {
+        printf("%d \n",ptr->data);
+    }
+}
+int main()
+{
+    createLinkedList();
+    printLinkedList();  
+
+    return 0; 
+}
