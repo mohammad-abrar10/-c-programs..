@@ -413,10 +413,43 @@ void printLinkedList()
         printf("%d \n",ptr->data);
     }
 }
+void insertNodeAtPosition(int position) {
+    SLL *newNode = getnode();
+    if(position == 1) {
+        newNode->link = start;
+        start = newNode;
+        return;
+    }
+
+    SLL *ptr = start;
+    int count = 1;
+    while(ptr != NULL && count < position - 1) {
+        ptr = ptr->link;
+        count++;
+    }
+
+    if(ptr == NULL) {
+        printf("Position out of range\n");
+        return;
+    }
+
+    newNode->link = ptr->link;
+    ptr->link = newNode;
+}
 int main()
 {
     createLinkedList();
-    printLinkedList();  
+    printf("initial linked list ");
+    printLinkedList();
 
-    return 0; 
+    int position;
+    printf("Enter position to insert new node: ");
+    scanf("%d", &position);
+
+    insertNodeAtPosition(position);
+
+    printf("Updated Linked List after insertion:\n");
+    printLinkedList();
+
+    return 0;
 }
