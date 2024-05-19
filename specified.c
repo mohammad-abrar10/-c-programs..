@@ -68,15 +68,14 @@ void printLinkedList()
 
 void insertNodeAtPosition(int position)
 {
-   
 
-    if (position < 1 || position > nodeCount + 1)
+    if (position>nodeCount + 1||position<1)
     {
         printf("position out of range");
     }
     else
     {
-        SLL *newnode = getnode();
+        SLL * newnode = getnode();
         if (position == 1)
         {
             newnode->link = start;
