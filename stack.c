@@ -11,7 +11,7 @@ int ch;
 
 
 int fullStack(){
-  // if(top >= MAX - 1){
+  // if(top >= MAX ){
   //   return 1;
   // }
   // else{
@@ -36,10 +36,11 @@ int emptyStack(){
 // function to create STACK
 void createStack(){
   start :
-   ++top;
+  //  ++top;
    if (fullStack()) {
         printf("Stack overflow. Cannot add more elements.\n");
     }else{
+       ++top;
       printf("enter element in a stack at %d   ------>   ", top);
       scanf("%d",&stack[top]);
     }
@@ -56,11 +57,11 @@ void createStack(){
     break;
 
   default:
-    system("exit");
+    break;
   }
 }
 
-// function to insert into the STACK
+// function to push element in the stack in the STACK
 void insertAtStack(){
   if(fullStack()){
     printf("Stack overflow. Cannot add more elements.\n");
@@ -77,7 +78,7 @@ void peakStack(){
   printf("the last element in the stack is %d ----> ",stack[top]);
 }
 
-// function to delete element in the stack
+// function to pop element in the stack
 
 void deleteStack(){
   if(emptyStack()){
