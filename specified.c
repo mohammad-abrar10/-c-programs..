@@ -41,9 +41,7 @@ void createLinkedList()
     else
     {
         for (ptr = start; ptr->link != NULL; ptr = ptr->link)
-            ;
-
-        ptr->link = getnode(); // when Null
+             ptr->link = getnode(); // when Null
     }
 
     printf("\n Press Y to continue : ");
@@ -112,6 +110,9 @@ void insertNodeAtPosition(int position)
     // prev->link = newnode;
     // newnode->link = forward;
 }
+
+  
+
 // void insertNodeAtPosition(int position) {
 //     SLL *newNode = getnode();
 //     if(position == 1) {
@@ -135,20 +136,66 @@ void insertNodeAtPosition(int position)
 //     newNode->link = ptr->link;
 //     ptr->link = newNode;
 // }
+
+void deleteNodeAtPosition(int position) {
+    if (start == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    if (position < 1 || position > nodeCount) {
+        printf("Position out of range\n");
+        return;
+    }
+
+    SLL* temp = start;
+
+    //delete at begining 
+    if (position == 1) {
+        start = start->link;
+        free(temp);
+        return;
+    }
+
+    //delete at a specified position
+    SLL* prev = NULL;
+    for (int count = 1; count < position; count++) {
+        prev = temp;
+        temp = temp->link;
+    }
+    
+    if (prev != NULL) {
+        prev->link = temp->link;
+    }
+    free(temp);
+}
 int main()
 {
     createLinkedList();
     printf("\ninitial linked list \n ");
     printLinkedList();
 
-    int position;
+    int positiontoinsert;
     printf("\nEnter position to insert new node   :    ");
-    scanf("%d", &position);
+    scanf("%d", &positiontoinsert);
 
-    insertNodeAtPosition(position);
+    insertNodeAtPosition(positiontoinsert);
+
+   
 
     printf("\nUpdated Linked List after insertion:\n");
     printLinkedList();
+
+
+   int DeleteAtposition;
+    printf("\nenter position where  you want to delete:\n");
+    scanf("%d",&DeleteAtposition);
+    deleteNodeAtPosition(DeleteAtposition);
+
+    printf("\nUpdated Linked List after deletion:\n");
+    printLinkedList();
+
+   
 
     return 0;
 }
