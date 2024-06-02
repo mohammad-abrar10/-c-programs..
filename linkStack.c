@@ -17,13 +17,13 @@ que* getNode() {
         exit(1);
     }
     nodecount++;
-    printf("Enter data: ");
+    printf("Enter data at  %d  : ",nodecount);
     scanf("%d", &fresh->data);
     fresh->link = NULL;
     return fresh;
 }
 
-void createqueue() {
+void createstack() {
     que *ptr;
     char ch;
 
@@ -42,25 +42,38 @@ void createqueue() {
     scanf("%c", &ch);
 
     if (ch == 'y' || ch == 'Y') {
-        createqueue(); //recursion
+        createstack(); //recursion
     }
 }
 
 
 // function to delete element in a queue
 
-void deque(){
-  que* temp = start;
-
-    if(start==NULL){
-      printf("queue is empty .....");
-    }
-    else {
-        start = start->link;
-        free(temp);
+void push() {
+    if (start == NULL) {
+        printf("Queue is empty, cannot delete.\n");
         return;
     }
+
+    que* temp = start;
+    que* prev = NULL;
+    int count;
+
+    for (count = 1; count < nodecount; count++) {
+        prev = temp;
+        temp = temp->link;
+    }
+
+    if (prev == NULL) {
+        // Only one element in the queue
+        start = NULL;
+    } else {
+        prev->link = temp->link;
+    }
+    free(temp);
+    nodecount--;
 }
+
 
 
 // function to print queue linked list;
@@ -69,7 +82,7 @@ void printLinkedList()
     que *ptr;
     for (ptr = start; ptr != NULL; ptr = ptr->link)
     {
-        printf("%d \n", ptr->data);
+        printf("%d ----> ", ptr->data);
     }
 }
 
@@ -83,21 +96,22 @@ system("clear");
 printf("\n ******************************************************************* \n");
 printf("\n *******************       MENU     ******************************** \n");
 printf("\n *******************************************************************\n");
-printf("press 1 to insert into the queue \n");
-printf("press 2 to  a delete element in the queue\n");
-printf("press 3 to  a print the queue\n");
+printf("press 1 to push element  into the stack \n");
+printf("press 2 to  a pop element in the stack\n");
+printf("press 3 to  a print the stack\n");
 
 scanf("%d",&ch);
 switch (ch)
 {
 case 1:
-  createqueue();
+  createstack();
   break;
 
 case 2:
-  deque();
+  push();
   break;
 case 3:
+ printf("\n stack  : \n");
  printLinkedList();
   break;
 
@@ -112,6 +126,7 @@ default:
     goto  MENU;
   }
   else{
+    // exits the program
     system("exit");
   }
 
